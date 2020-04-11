@@ -1,7 +1,6 @@
 from pathlib import Path
-
-# The folder you want to organize
-directory = Path("C:/Users/Vincent/Downloads")
+from tkinter import filedialog
+from tkinter import *
 
 # The folders you want to have.
 # The keys are what you refer to in the code
@@ -62,6 +61,12 @@ def organize_folder(dir):
 
 if __name__ == "__main__":
     # This function checks if the sub-folders exists. If they don't, create them.
+    # The folder you want to organize
+    directory = ""
+    root = Tk()
+    root.withdraw()
+    folder_selected = filedialog.askdirectory()
+    directory=Path(folder_selected)
     create_directories(directory)
     
     organize_folder(directory)
