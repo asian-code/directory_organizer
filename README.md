@@ -39,5 +39,5 @@ Type in your terminal - `sudo apt install python3` <br>
 
 ***For Linux and Mac OS X:***
 1. Locate stock_assistant.py file in terminal<br>
-2. Type `python3 directory_organizer.py` in terminal
+2. Type `python3 organizer.py` in terminal
 
