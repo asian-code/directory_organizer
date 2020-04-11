@@ -30,7 +30,8 @@ Or by...
 
 **2. Type in your terminal - `git clone https://www.github.com/asian-code/direcotry_organizer`**
 
-**To make sure everything needed is installed on the system:**<br>
+**To make sure everything needed is installed on the system**<br>
+
 Type in your terminal:
 * `pip install tkinter`
 
@@ -38,7 +39,7 @@ Type in your terminal:
 
 ## &nbsp; How to Run &nbsp; :running:
 
-***For Linux and Mac OS X:***
+***For Linux, Mac OS X, and Windows:***
 1. Locate stock_assistant.py file in terminal<br>
 2. Type `python3 organizer.py` in terminal
 
