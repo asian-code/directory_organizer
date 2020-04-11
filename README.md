@@ -1,6 +1,9 @@
 ## About Directory Organizer (Under development)
 The purpose of the tool is to help organize a selected folder/directory by sorting the type of file into seperate folders
-
+------------
+** To do list:
+* pop up select folder
+* code freeze 
 ----------------------------------------
 ##  &nbsp; Requirements &nbsp; :unlock:
 
