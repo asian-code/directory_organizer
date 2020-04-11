@@ -2,71 +2,79 @@ from pathlib import Path
 from tkinter import filedialog
 from tkinter import *
 
-# The folders you want to have.
-# The keys are what you refer to in the code
-# The Values are the actual names of the folders that get creatad.
-folders = {
-    "images": "images",
-    "videos": "videos",
-    "exe_zip": "exe_zip",
-    "audio": "audio",
-    "other": "other"
-}
+r = '\033[0m'  # reset
+red = '\033[31m'
+green = '\033[32m'
 
-# These are the "actions".
-# The keys are the file extensions you want to move into the specified folder.
-# The values are the folder you want the files with the extension to go in to.
+# The keys = file extensions you want to move into the specified folder.
+# The values = the folder you want the files with the extension to go in to.
 actions = {
-    ".png": folders["images"],
-    ".jpg": folders["images"],
-    ".gif": folders["images"],
+    ".png": "Images",
+    ".jpg": "Images",
+    ".gif": "Images",
+    ".ico": "Images",
 
-    ".mp4": folders["videos"],
-    ".mov": folders["videos"],
-    ".avi": folders["videos"],
+    ".mp4": "Videos",
+    ".mov": "Videos",
+    ".avi": "Videos",
 
-    ".exe": folders["exe_zip"],
-    ".rar": folders["exe_zip"],
-    ".zip": folders["exe_zip"],
+    ".exe": "Zip",
+    ".rar": "Zip",
+    ".zip": "Zip",
 
-    ".wav": folders["audio"],
-    ".mp3": folders["audio"],
-    ".ogg": folders["audio"],
-    ".flac": folders["audio"],
+    ".docx":"Documents",
+
+    ".wav": "Audio",
+    ".mp3": "Audio",
+    ".ogg": "Audio",
+    ".flac": "Audio",
 }
-
-
-def create_directories(dir):
-    for dir_name in folders.values():
-        if dir.joinpath(dir_name) not in dir.iterdir():
-            dir.joinpath(dir_name).mkdir()
-
 
 def organize_folder(dir):
-    dir = Path(dir)
-
-    # dir.glob("*,*") is used to get all the files (and folders) in the directory.
+    # dir.glob("*,*") is used to get all the files (and folders) and store the value in a list
     for file in dir.glob("*.*"):
         if file.is_file():
             # If the file has an extension that's in the actions and destination, move the file.
             try:
-                dest_path = dir.joinpath(actions[file.suffix], file.name)
+                # Creates folder for file type if doesnt exist
+                exten=file.suffix
+                if exten in actions.keys():
+                    if dir.joinpath(actions[exten]) not in dir.iterdir():
+                        dir.joinpath(actions[exten]).mkdir()
+                        print("[+] Created Folder: "+actions[exten])
+                    dest_path = dir.joinpath(actions[exten], file.name)
+                else:
+                    folder="Other"
+                    if dir.joinpath(folder) not in dir.iterdir():
+                        dir.joinpath(folder).mkdir()
+                        print("[+] Created Folder: "+folder)
+                    dest_path = dir.joinpath(folder, file.name)
+                    
+                
+                #print(dest_path)
                 file.rename(dest_path)
             
-            # If the file doesn't have an extension, move it into the "other" folder. 
-            except KeyError:
-                dest_path = dir.joinpath(folders["other"], file.name)
-                file.rename(dest_path)
+            # If the file doesn't have an extension or a filetype not in Actions ,move it into the "other" folder. 
+            except:
+                print(red+"[!] Problem trying to move files"+r)
+                raise
+         
 
 
-if __name__ == "__main__":
-    # This function checks if the sub-folders exists. If they don't, create them.
-    # The folder you want to organize
-    directory = ""
-    root = Tk()
-    root.withdraw()
-    folder_selected = filedialog.askdirectory()
-    directory=Path(folder_selected)
-    create_directories(directory)
+def main():
+    try:
+        # Select the folder you want organized with a system Popup
+        root = Tk()
+        root.withdraw()
+        folder_selected = filedialog.askdirectory()
+        directory=Path(folder_selected) # the folder you want organized
+        print(green+"[+] Selected folder: "+r+str(directory))
+    except:
+        print(red+"[!] You didnt pick a folder/location"+r)
+        raise
+        return
     
     organize_folder(directory)
+    print(green+"[+] Successfully Organized: "+r+str(directory))
+
+main()
