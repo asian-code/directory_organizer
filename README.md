@@ -11,6 +11,7 @@ When you run the tool, a popup will appear for you to select which folder to org
 Operating System:
 * Mac OS 
 * Linux (Debian/Ubuntu Based)
+* Windows
 
 Python Library (Pip3):
 * python3
@@ -29,8 +30,9 @@ Or by...
 
 **2. Type in your terminal - `git clone https://www.github.com/asian-code/direcotry_organizer`**
 
-**To make sure python3 is installed on the system:**<br>
-Type in your terminal - `sudo apt install python3` <br>
+**To make sure everything needed is installed on the system:**<br>
+Type in your terminal:
+* `pip install tkinter`
 
 ------------------------------------------------------------------------
 
