@@ -13,10 +13,14 @@ actions = {
     ".jpg": "Images",
     ".gif": "Images",
     ".ico": "Images",
+    ".jpeg":"Images",
+    ".psd":"Images",
+    ".kra":"Images",
 
     ".mp4": "Videos",
     ".mov": "Videos",
     ".avi": "Videos",
+    ".mkv":"Videos",
 
     ".rar": "Zip",
     ".zip": "Zip",
@@ -26,22 +30,33 @@ actions = {
     ".docx":"Documents",
     ".txt":"Documents",
     ".pdf":"Documents",
+    ".doc":"Documents",
+    ".xls":"Documents",
+    ".ppt":"Documents",
 
     ".wav": "Audio",
     ".mp3": "Audio",
     ".ogg": "Audio",
     ".flac": "Audio",
+    ".ape": "Audio",
 
     ".exe":"Programs",
+    ".dmg":"Programs",
+    ".deb":"Programs",
+    ".apk":"Programs",
+
+    ".blender":"3D",
+    ".obj":"3D",
+    ".fbx":"3D",
 
    ".py": "Scripts",
    ".java": "Scripts",
    ".sh": "Scripts",
    ".bat": "Scripts",
    ".pl": "Scripts",
-   ".pm": "Scripts",
-   ".pod": "Scripts",
-   ".p5": "Scripts",
+   ".php": "Scripts",
+   ".cpp": "Scripts",
+   ".c": "Scripts",
    ".kt": "Scripts"}
 
 def organize_folder(dir):
