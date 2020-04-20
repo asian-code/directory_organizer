@@ -18,17 +18,31 @@ actions = {
     ".mov": "Videos",
     ".avi": "Videos",
 
-    ".exe": "Zip",
     ".rar": "Zip",
     ".zip": "Zip",
+    ".001": "Zip",
+    ".7z": "Zip",
 
     ".docx":"Documents",
+    ".txt":"Documents",
+    ".pdf":"Documents",
 
     ".wav": "Audio",
     ".mp3": "Audio",
     ".ogg": "Audio",
     ".flac": "Audio",
-}
+
+    ".exe":"Programs",
+
+   ".py": "Scripts",
+   ".java": "Scripts",
+   ".sh": "Scripts",
+   ".bat": "Scripts",
+   ".pl": "Scripts",
+   ".pm": "Scripts",
+   ".pod": "Scripts",
+   ".p5": "Scripts",
+   ".kt": "Scripts"}
 
 def organize_folder(dir):
     # dir.glob("*,*") is used to get all the files (and folders) and store the value in a list
@@ -58,8 +72,6 @@ def organize_folder(dir):
             except:
                 print(red+"[!] Problem trying to move files"+r)
                 raise
-         
-
 
 def main():
     try:
